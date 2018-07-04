@@ -13,8 +13,8 @@ var topics = [
     "Turtles"
 ];
 
+// document.body.innerHTML = "";
 prepareButtons();
-
 
 function prepareButtons() {
 
@@ -96,18 +96,21 @@ $('#animal_new').on('click', function () {
     event.preventDefault();
 
     //input from text box
-    var newAnimal = $(this).attr("id");
+    var newAnimal = $(this).attr('value');
     console.log("newAnimal", newAnimal);
 
     var text2 = $('<button></button>').text("New Animal");
-    console.log("text2", text2);
+    // console.log("text2", text2);
 
     // see if animal already exists
     var dupAnimal = true;
+    
     for (var j = 0; j < topics.length; j++) {
+        console.log("newAnimal os if", newAnimal);
         if (topics[j] == newAnimal) {
             dupAnimal = false;
-
+            topics.push(newAnimal);
+            console.log("newAminal is if", newAmimal);
         }
     }
 
